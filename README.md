@@ -1,7 +1,6 @@
 
-  # Modern Minimalist Homepage
+  # YU4C Website
 
-  This is a code bundle for Modern Minimalist Homepage. The original project is available at https://www.figma.com/design/WOrb2Y7ZAttRWq0JFJXHpO/Modern-Minimalist-Homepage.
 
   ## Running the code
 

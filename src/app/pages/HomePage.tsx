@@ -168,14 +168,7 @@ export function HomePage() {
         </div>
 
         {/* Scroll hint */}
-        <motion.div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-white/50"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <span className="text-xs">Scroll</span>
-          <div className="w-px h-8 bg-white/30" />
-        </motion.div>
+
       </ParallaxHero>
 
       {/* ── STATS BAND ── */}

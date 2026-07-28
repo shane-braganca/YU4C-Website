@@ -27,35 +27,87 @@ export function ContactPage() {
   };
 
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
 
-    try {
+  //   try {
 
-      await sendEmails(formData);
+  //     await sendEmails(formData);
 
-      alert("Thank you! We will get back to you soon. God bless you! 🙏");
+  //     alert("Thank you! We will get back to you soon. God bless you! 🙏");
 
-      setFormData({
-        first_name: "",
-        last_name: "",
-        email: "",
-        parish: "",
-        subject: "General Inquiry",
-        message: ""
-      });
+  //     setFormData({
+  //       first_name: "",
+  //       last_name: "",
+  //       email: "",
+  //       parish: "",
+  //       subject: "General Inquiry",
+  //       message: ""
+  //     });
 
-    } catch(error) {
+  //   } catch(error) {
 
-      console.error(error);
-      alert("Something went wrong. Please try again.");
+  //     console.error(error);
+  //     alert("Something went wrong. Please try again.");
 
-    }
-  };
+  //   }
+  // };
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
+  try {
+
+    await sendEmails(formData);
+
+    setModal({
+      show: true,
+      type: "success",
+      title: "Message Sent Successfully 🙏",
+      message:
+        "Thank you for reaching out to YU4C Goa. Our team will get back to you soon. God bless you!"
+    });
+
+
+    setFormData({
+      first_name: "",
+      last_name: "",
+      email: "",
+      parish: "",
+      subject: "General Inquiry",
+      message: ""
+    });
+
+
+  } catch(error) {
+
+    console.error(error);
+
+    setModal({
+      show: true,
+      type: "error",
+      title: "Something Went Wrong",
+      message:
+        "We couldn't send your message. Please try again later."
+    });
+
+  }
+
+};
+
+const [modal, setModal] = useState<{
+  show: boolean;
+  type: string;
+  title: string;
+  message: string;
+}>({
+  show: false,
+  type: "",
+  title: "",
+  message: "",
+});
 
 return (
-<div>
+  <><div>
 
 
 <section className="py-20 sm:py-28">
@@ -312,6 +364,115 @@ Send Message
 
 
 </div>
+{modal.show && (
+
+<div
+style={{
+  position:"fixed",
+  inset:0,
+  background:"rgba(0,0,0,0.45)",
+  display:"flex",
+  justifyContent:"center",
+  alignItems:"center",
+  zIndex:9999,
+  padding:"20px"
+}}
+>
+
+
+<div
+style={{
+  width:"100%",
+  maxWidth:"420px",
+  background:"#fff",
+  borderRadius:"20px",
+  padding:"35px",
+  textAlign:"center",
+  boxShadow:"0 20px 50px rgba(0,0,0,0.2)",
+  animation:"fadeIn .3s ease"
+}}
+>
+
+
+<div
+style={{
+fontSize:"55px",
+marginBottom:"15px"
+}}
+>
+
+{modal.type === "success" ? "🎉" : "⚠️"}
+
+</div>
+
+
+
+<h2
+style={{
+color:
+modal.type === "success"
+? "#1e3a8a"
+: "#dc2626",
+marginBottom:"15px"
+}}
+>
+
+{modal.title}
+
+</h2>
+
+
+
+<p
+style={{
+color:"#555",
+fontSize:"16px",
+lineHeight:"1.6",
+marginBottom:"25px"
+}}
+>
+
+{modal.message}
+
+</p>
+
+
+
+<button
+
+onClick={() =>
+setModal({
+show:false,
+type:"",
+title:"",
+message:""
+})
+}
+
+style={{
+background:"#1e3a8a",
+color:"#fff",
+border:"none",
+padding:"12px 30px",
+borderRadius:"30px",
+fontSize:"16px",
+cursor:"pointer"
+}}
+
+>
+
+Okay
+
+</button>
+
+
+</div>
+
+
+</div>
+
+)}
+  </>
 
 );
 

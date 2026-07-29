@@ -1,6 +1,6 @@
 import { Mail, MapPin, Instagram, Facebook, Flame } from "lucide-react";
 import { Link } from "react-router";
-import logoImage from "figma:asset/dd195dc39807305896ae5ceac3096e4eaf3a3438.png";
+import logoImage from "figma:asset/YU4C.png";
 
 export function SiteFooter() {
   return (

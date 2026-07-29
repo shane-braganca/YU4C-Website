@@ -9,13 +9,10 @@ const HERO_IMG = "https://images.unsplash.com/photo-1438232992991-995b7058bbb3?a
 const PRAYER_IMG = "https://images.unsplash.com/photo-1526746323784-6bc814d79273?auto=format&fit=crop&w=800&q=80";
 
 const groups = [
-  { area: "Panaji", parishes: ["Cathedral of Sé de Goa", "St. Inez Parish", "Holy Spirit Church"], day: "Saturdays", time: "5:00 PM", contact: "Contact parish office", color: "bg-blue-700" },
-  { area: "Margao", parishes: ["Holy Spirit Church, Margao", "St. Sebastian Chapel", "Our Lady of Grace"], day: "Fridays", time: "6:30 PM", contact: "Contact parish office", color: "bg-blue-800" },
+  { area: "Panaji", parishes: ["Immaculate Conception Church (Basement Hall)"], day: "Sundays", time: "11:00 AM", contact: "Contact parish office", color: "bg-blue-700" },
+  { area: "Margao", parishes: ["Our Lady of Grace"], day: "Sundays", time: "11:00 AM", contact: "Contact parish office", color: "bg-blue-800" },
   { area: "Mapusa", parishes: ["Our Lady of Miracles", "St. Britto Parish", "Chapel of St. Francis"], day: "Saturdays", time: "4:30 PM", contact: "Contact parish office", color: "bg-amber-500" },
-  { area: "Vasco", parishes: ["St. Andrew's Parish", "Our Lady of Health", "St. Francis Xavier Chapel"], day: "Sundays", time: "3:00 PM", contact: "Contact parish office", color: "bg-emerald-600" },
-  { area: "Ponda", parishes: ["St. Thomas Church, Ponda", "St. Anne Parish", "Our Lady of Rosary"], day: "Saturdays", time: "5:30 PM", contact: "Contact parish office", color: "bg-rose-600" },
-  { area: "Canacona", parishes: ["St. Teresa of Child Jesus", "Our Lady of Remedies", "St. Francis of Assisi"], day: "Fridays", time: "6:00 PM", contact: "Contact parish office", color: "bg-blue-600" },
-];
+ ];
 
 const staggerContainer = { hidden: {}, show: { transition: { staggerChildren: 0.1 } } };
 const staggerItem = {

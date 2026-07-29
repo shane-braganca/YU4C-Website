@@ -1,6 +1,6 @@
 import { Menu, X, Flame, Home, Calendar, Users, Mail } from "lucide-react";
 import { useState, useEffect } from "react";
-import logoImage from "figma:asset/dd195dc39807305896ae5ceac3096e4eaf3a3438.png";
+import logoImage from "figma:asset/YU4C.png";
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

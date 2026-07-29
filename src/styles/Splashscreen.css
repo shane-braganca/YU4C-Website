@@ -1,0 +1,42 @@
+.splash {
+  position: fixed;
+  inset: 0;
+  background: #ffffff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  z-index:99999;
+}
+
+
+.logo {
+  width:180px;
+  position:relative;
+  z-index:2;
+  will-change:transform, opacity; 
+  border-radius: 50%;
+}
+
+
+.glow {
+
+  position:absolute;
+
+  width:250px;
+  height:250px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,215,80,0.5),
+      rgba(255,215,80,0)
+    );
+
+  filter:blur(20px);
+
+  z-index:1;
+
+}

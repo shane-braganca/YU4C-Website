@@ -2,7 +2,7 @@ import { Menu, X, Flame, ChevronDown } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { Link, NavLink, useLocation } from "react-router";
 import { motion, AnimatePresence } from "motion/react";
-import logoImage from "figma:asset/dd195dc39807305896ae5ceac3096e4eaf3a3438.png";
+import logoImage from "figma:asset/YU4C.png";
 
 const links = [
   { to: "/about", label: "About" },
@@ -13,6 +13,13 @@ const links = [
       { to: "/ministries", label: "Ministries" },
       { to: "/prayer-groups", label: "Prayer Groups" },
       { to: "/retreats", label: "Retreats" },
+    ],
+  },
+  {
+    label: "Blogs",
+    children: [
+      { to: "/reports", label: "Reports" },
+      { to: "/articles", label: "Articles" },
     ],
   },
   { to: "/contact", label: "Contact" },

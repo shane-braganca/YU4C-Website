@@ -1,13 +1,12 @@
 // @ts-ignore
-import "../../../styles/splashscreen.css";
+import "../../styles/splashscreen.css";
 
 import logoImage from "figma:asset/YU4C.png";
-
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
 interface SplashScreenProps {
-  onComplete?: () => void;
+  onComplete: () => void;
 }
 
 export default function SplashScreen({
@@ -21,11 +20,9 @@ export default function SplashScreen({
 
   useEffect(() => {
 
-    const tl = gsap.timeline({
-      onComplete: () => {
-        onComplete?.();
-      }
-    });
+  const tl = gsap.timeline({
+  onComplete: onComplete,
+});
 
 
     // Initial state

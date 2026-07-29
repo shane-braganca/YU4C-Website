@@ -10,7 +10,7 @@ export function SiteFooter() {
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-5">
-              <img src={logoImage} alt="YU4C Goa" className="h-12 w-12 object-contain" />
+              <img src={logoImage} alt="YU4C Goa" className="h-12 w-12 object-contain rounded-3xl" />
               <div>
                 <p className="font-bold text-xl text-white">YU4C Goa</p>
                 <p className="text-blue-300 text-sm">Youth United for Christ</p>

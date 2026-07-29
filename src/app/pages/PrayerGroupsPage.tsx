@@ -11,7 +11,7 @@ const PRAYER_IMG = "https://images.unsplash.com/photo-1526746323784-6bc814d79273
 const groups = [
   { area: "Panaji", parishes: ["Immaculate Conception Church (Basement Hall)"], day: "Sundays", time: "11:00 AM", contact: "Contact parish office", color: "bg-blue-700" },
   { area: "Margao", parishes: ["Our Lady of Grace"], day: "Sundays", time: "11:00 AM", contact: "Contact parish office", color: "bg-blue-800" },
-  { area: "Mapusa", parishes: ["Our Lady of Miracles", "St. Britto Parish", "Chapel of St. Francis"], day: "Saturdays", time: "4:30 PM", contact: "Contact parish office", color: "bg-amber-500" },
+  { area: "Mapusa", parishes: ["St. Mary's High School"], day: "Sundays", time: "11:00 AM", contact: "Contact parish office", color: "bg-amber-500" },
  ];
 
 const staggerContainer = { hidden: {}, show: { transition: { staggerChildren: 0.1 } } };

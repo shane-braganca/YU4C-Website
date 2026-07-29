@@ -8,10 +8,8 @@ export default function App() {
 
   return (
     <>
-      {/* Website loads immediately in the background */}
       <RouterProvider router={router} />
 
-      {/* Splash animation overlays the website */}
       {showSplash && (
         <SplashScreen
           onComplete={() => setShowSplash(false)}

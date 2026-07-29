@@ -117,7 +117,7 @@ export function NavBar() {
                   scrolled ? "bg-blue-50" : "bg-white/10 backdrop-blur-sm"
                 }`}
               >
-                <img src={logoImage} alt="YU4C" className="w-7 h-7 object-contain" />
+                <img src={logoImage} alt="YU4C" className="w-7 h-7 object-contain rounded-3xl" />
               </motion.div>
               <div className="flex flex-col leading-none">
                 <span className={`font-extrabold text-base tracking-tight transition-colors ${scrolled ? "text-blue-700" : "text-white"}`}>

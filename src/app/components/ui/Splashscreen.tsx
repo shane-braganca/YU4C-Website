@@ -1,5 +1,5 @@
 // @ts-ignore
-import "../../../../styles/splashscreen.css";
+import "../../../styles/splashscreen.css";
 
 import logoImage from "figma:asset/YU4C.png";
 import { useEffect, useRef } from "react";

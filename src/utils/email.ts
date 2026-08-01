@@ -1,5 +1,5 @@
 import emailjs from "@emailjs/browser";
-
+import { supabase } from "../lib/supabase";
 const SERVICE_ID = import.meta.env.VITE_EMAIL_SERVICE_ID;
 const NOTIFICATION_TEMPLATE_ID = import.meta.env
   .VITE_EMAIL_NOTIFICATION_TEMPLATE;
@@ -52,4 +52,30 @@ export const sendEmails = async (formData: {
   //   formData,
   //   PUBLIC_KEY
   // );
+};
+export const saveContactMessage = async (formData: {
+  first_name: string;
+  last_name: string;
+  email: string;
+  parish: string;
+  subject: string;
+  message: string;
+}) => {
+  const { data, error } = await supabase.from("contact_messages").insert([
+    {
+      first_name: formData.first_name,
+      last_name: formData.last_name,
+      email: formData.email,
+      parish: formData.parish,
+      subject: formData.subject,
+      message: formData.message,
+    },
+  ]);
+
+  if (error) {
+    console.error("Supabase error:", error);
+    throw error;
+  }
+
+  return data;
 };

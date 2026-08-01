@@ -9,7 +9,8 @@ import { JoinPage } from "./pages/JoinPage";
 import { PrayerGroupsPage } from "./pages/PrayerGroupsPage";
 import { RetreatsPage } from "./pages/RetreatsPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
-
+import { ArticlePage } from "./pages/ArticlePage";
+import { ArticleDetailsPage } from "./pages/ArticleDetailsPage";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -24,6 +25,8 @@ export const router = createBrowserRouter([
       { path: "prayer-groups", Component: PrayerGroupsPage },
       { path: "retreats", Component: RetreatsPage },
       { path: "*", Component: NotFoundPage },
+      { path: "articles", Component: ArticlePage },
+      { path: "articles/:slug", Component: ArticleDetailsPage },
     ],
   },
 ]);

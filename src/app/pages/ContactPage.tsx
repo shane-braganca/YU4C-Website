@@ -1,14 +1,15 @@
 import { Mail, MapPin, Instagram, Facebook } from "lucide-react";
 import { motion } from "motion/react";
 import { ScrollReveal } from "../components/ScrollReveal";
-import { sendEmails } from "../../utils/email";
+import { sendEmails, saveContactMessage } from "../../utils/email";
 import { useState } from "react";
 import { ParallaxHero } from "../components/ParallaxHero";
 import { FloatingParticles } from "../components/FloatingParticles";
 
 const GOA_IMG =
   "https://images.unsplash.com/photo-1624365700883-cc574778eff5?auto=format&fit=crop&w=1920&q=80";
-const HERO_IMG = "https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&w=1920&q=80";
+const HERO_IMG =
+  "https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&w=1920&q=80";
 
 export function ContactPage() {
   const [formData, setFormData] = useState({
@@ -56,6 +57,10 @@ export function ContactPage() {
     e.preventDefault();
 
     try {
+      // 1. Save to Supabase
+      await saveContactMessage(formData);
+
+      // 2. Google Sheet + email functionality
       await sendEmails(formData);
 
       setModal({
@@ -101,14 +106,41 @@ export function ContactPage() {
   return (
     <>
       <div>
-              <ParallaxHero src={HERO_IMG} alt="Prayer Groups" overlay="bg-blue-950/80" className="h-[55vh] sm:h-[65vh] min-h-[400px] flex items-end pb-16 sm:pb-24">
-                <FloatingParticles />
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 w-full">
-                  <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="text-amber-400 font-semibold text-sm uppercase tracking-widest mb-3">Contact Us</motion.p>
-                  <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="text-4xl sm:text-5xl font-extrabold text-white mb-3">Let us know how we can help</motion.h1>
-                  <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.25 }} className="text-blue-200 text-lg max-w-xl">We'd love to hear from you! Reach out with any questions or feedback.</motion.p>
-                </div>
-              </ParallaxHero>
+        <ParallaxHero
+          src={HERO_IMG}
+          alt="Prayer Groups"
+          overlay="bg-blue-950/80"
+          className="h-[55vh] sm:h-[65vh] min-h-[400px] flex items-end pb-16 sm:pb-24"
+        >
+          <FloatingParticles />
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 w-full">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-amber-400 font-semibold text-sm uppercase tracking-widest mb-3"
+            >
+              Contact Us
+            </motion.p>
+            <motion.h1
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-4xl sm:text-5xl font-extrabold text-white mb-3"
+            >
+              Let us know how we can help
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.25 }}
+              className="text-blue-200 text-lg max-w-xl"
+            >
+              We'd love to hear from you! Reach out with any questions or
+              feedback.
+            </motion.p>
+          </div>
+        </ParallaxHero>
         <section className="py-20 sm:py-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-14">
@@ -134,7 +166,7 @@ export function ContactPage() {
                         Parish-level groups active across Goa
                       </p>
                     </div>
-                  </div>  
+                  </div>
 
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">

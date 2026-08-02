@@ -141,7 +141,8 @@ export function ContactPage() {
             </motion.p>
           </div>
         </ParallaxHero>
-        <section className="py-20 sm:py-28">
+        <section className="py-20 sm:py-28 bg-gradient-to-br from-blue-50/60 via-white to-amber-50/30">
+          {" "}
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-14">
               <ScrollReveal direction="left">
@@ -216,7 +217,10 @@ export function ContactPage() {
                   Send Us a Message
                 </h2>
 
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form
+                  onSubmit={handleSubmit}
+                  className="space-y-5 bg-white border border-blue-100 rounded-2xl p-6 sm:p-8 shadow-sm"
+                >
                   <div className="grid grid-cols-2 gap-4">
                     <input
                       name="first_name"

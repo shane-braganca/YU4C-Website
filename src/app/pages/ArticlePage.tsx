@@ -100,7 +100,7 @@ export function ArticlePage() {
               </h2>
 
               <p className="text-gray-500">
-                Check back soon for stories and reflections from our community.
+                Check back soon for more stories and reflections from our community.
               </p>
             </div>
           )}

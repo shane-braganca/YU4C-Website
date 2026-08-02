@@ -24,9 +24,10 @@ export const router = createBrowserRouter([
       { path: "join", Component: JoinPage },
       { path: "prayer-groups", Component: PrayerGroupsPage },
       { path: "retreats", Component: RetreatsPage },
-      { path: "*", Component: NotFoundPage },
       { path: "articles", Component: ArticlePage },
       { path: "articles/:slug", Component: ArticleDetailsPage },
+
+      { path: "*", Component: NotFoundPage },
     ],
   },
 ]);

@@ -14,7 +14,7 @@ export const getPublishedArticles = async () => {
 
   return data;
 };
-
+// slug
 export const getArticleBySlug = async (slug: string) => {
   const { data, error } = await supabase
     .from("articles")

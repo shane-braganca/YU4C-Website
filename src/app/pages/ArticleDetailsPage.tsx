@@ -78,7 +78,7 @@ export function ArticleDetailsPage() {
 
   return (
     <>
-      {/* Hero / Cover Image */}
+      {/* Cover Image */}
       <section className="relative">
         {article.cover_image ? (
           <img

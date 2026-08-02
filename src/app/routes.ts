@@ -26,7 +26,6 @@ export const router = createBrowserRouter([
       { path: "retreats", Component: RetreatsPage },
       { path: "articles", Component: ArticlePage },
       { path: "articles/:slug", Component: ArticleDetailsPage },
-
       { path: "*", Component: NotFoundPage },
     ],
   },

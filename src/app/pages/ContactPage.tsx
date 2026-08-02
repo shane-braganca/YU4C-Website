@@ -128,7 +128,7 @@ export function ContactPage() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl sm:text-5xl font-extrabold text-white mb-3"
             >
-              Let us know how we can help
+              Let us know how we can help you
             </motion.h1>
             <motion.p
               initial={{ opacity: 0 }}

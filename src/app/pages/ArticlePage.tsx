@@ -71,7 +71,7 @@ export function ArticlePage() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl sm:text-5xl font-extrabold text-white mb-3"
           >
-            Stories, Reflections & Faith
+            Stories, Reflection & Faith
           </motion.h1>
 
           <motion.p
@@ -100,7 +100,8 @@ export function ArticlePage() {
               </h2>
 
               <p className="text-gray-500">
-                Check back soon for more stories and reflections from our community.
+                Check back soon for more stories and reflections from our
+                community.
               </p>
             </div>
           )}
@@ -153,7 +154,7 @@ export function ArticlePage() {
                         <span className="flex items-center gap-2">
                           <Calendar className="w-4 h-4" />
                           {new Date(
-                            articles[0].published_at
+                            articles[0].published_at,
                           ).toLocaleDateString()}
                         </span>
                       )}

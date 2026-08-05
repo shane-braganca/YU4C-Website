@@ -11,6 +11,8 @@ import { RetreatsPage } from "./pages/RetreatsPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import { ArticlePage } from "./pages/ArticlePage";
 import { ArticleDetailsPage } from "./pages/ArticleDetailsPage";
+import { AblazePage } from "./pages/AblazePage";
+import { AblazeDetailsPage } from "./pages/AblazeDetailsPage";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -26,6 +28,8 @@ export const router = createBrowserRouter([
       { path: "retreats", Component: RetreatsPage },
       { path: "articles", Component: ArticlePage },
       { path: "articles/:slug", Component: ArticleDetailsPage },
+      { path: "ablaze", Component: AblazePage },
+      { path: "ablaze/:year", Component: AblazeDetailsPage },
       { path: "*", Component: NotFoundPage },
     ],
   },

@@ -39,20 +39,20 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  
+
   /* Custom YU4C Brand Colors */
   --brand-primary: #1e40af;
   --brand-accent: #f59e0b;
   --brand-gradient-start: #1e3a8a;
   --brand-gradient-end: #3b82f6;
-  
+
   /* YU4C Charismatic Renewal Colors */
-  --pentecost-red: #BF1E2E;
-  --gold: #FFD700;
-  --sacred-white: #FFFFFF;
-  --rich-brown: #4E342E;
-  --soft-gray: #E0E0E0;
-  
+  --pentecost-red: #bf1e2e;
+  --gold: #ffd700;
+  --sacred-white: #ffffff;
+  --rich-brown: #4e342e;
+  --soft-gray: #e0e0e0;
+
   /* Legacy Red & Black */
   --brand-red: #dc2626;
   --brand-dark-red: #991b1b;
@@ -152,7 +152,7 @@
  * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
  */
 @layer base {
-  :where(:not(:has([class*=' text-']), :not(:has([class^='text-'])))) {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
     h1 {
       font-size: var(--text-2xl);
       font-weight: var(--font-weight-medium);
@@ -205,4 +205,125 @@
 
 html {
   font-size: var(--font-size);
+}
+
+/* =========================
+   ABLAZE FLAME
+========================= */
+
+.flame-body {
+  transform-origin: center bottom;
+  animation: ablazeFlame 1.8s ease-in-out infinite;
+}
+
+@keyframes ablazeFlame {
+  0%,
+  100% {
+    transform: rotate(-1deg) scaleY(1);
+  }
+
+  25% {
+    transform: rotate(1.5deg) scaleY(1.03);
+  }
+
+  50% {
+    transform: rotate(-2deg) scaleY(0.98);
+  }
+
+  75% {
+    transform: rotate(1deg) scaleY(1.04);
+  }
+}
+
+.ember {
+  position: absolute;
+  bottom: 25%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.ember-one {
+  left: 35%;
+  animation: emberOne 2.7s ease-out infinite;
+}
+
+.ember-two {
+  left: 60%;
+  animation: emberTwo 3.2s ease-out 0.7s infinite;
+}
+
+.ember-three {
+  left: 45%;
+  animation: emberThree 2.4s ease-out 1.2s infinite;
+}
+
+.ember-four {
+  left: 70%;
+  animation: emberFour 3s ease-out 1.7s infinite;
+}
+
+@keyframes emberOne {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.5);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-25px, -130px) scale(0);
+  }
+}
+
+@keyframes emberTwo {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.5);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(30px, -160px) scale(0);
+  }
+}
+
+@keyframes emberThree {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.5);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-40px, -100px) scale(0);
+  }
+}
+
+@keyframes emberFour {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.5);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(35px, -120px) scale(0);
+  }
 }

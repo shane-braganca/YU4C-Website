@@ -1,73 +1,10 @@
 import { Link } from "react-router";
 import { ArrowDown, ArrowRight, Flame } from "lucide-react";
-import { useEffect, useState } from "react";
 
-import { getAblazeEvents } from "../../utils/ablaze";
 import { AblazeFlame } from "../components/AblazeFlame";
+import { ablazeEvents } from "../data/ablazeData";
 
 export function AblazePage() {
-  // =========================
-  // SUPABASE DATA
-  // =========================
-
-  const [ablazeEvents, setAblazeEvents] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    async function loadEvents() {
-      try {
-        const data = await getAblazeEvents();
-        setAblazeEvents(data);
-      } catch (err) {
-        console.error("Failed to load Ablaze events:", err);
-        setError("Unable to load Ablaze events.");
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    loadEvents();
-  }, []);
-
-  // =========================
-  // LOADING
-  // =========================
-
-  if (loading) {
-    return (
-      <div className="flex min-h-screen items-center justify-center bg-[#050505] text-white">
-        <div className="text-center">
-          <Flame className="mx-auto mb-5 h-8 w-8 animate-pulse text-orange-500" />
-
-          <p className="text-sm tracking-[0.3em] text-gray-400">
-            LOADING ABLAZE...
-          </p>
-        </div>
-      </div>
-    );
-  }
-
-  // =========================
-  // ERROR
-  // =========================
-
-  if (error) {
-    return (
-      <div className="flex min-h-screen items-center justify-center bg-[#050505] px-6 text-white">
-        <div className="text-center">
-          <Flame className="mx-auto mb-5 h-8 w-8 text-red-500" />
-
-          <p className="text-red-400">{error}</p>
-
-          <p className="mt-3 text-sm text-gray-500">
-            Please try refreshing the page.
-          </p>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <main className="overflow-hidden bg-[#050505] text-white">
       {/* =========================
@@ -186,7 +123,7 @@ export function AblazePage() {
                   <div
                     className="relative overflow-hidden rounded-[28px] border border-gray-200 bg-white transition-all duration-500 group-hover:-translate-y-3"
                     style={{
-                      boxShadow: `0 15px 50px ${event.flame_color}18`,
+                      boxShadow: `0 15px 50px ${event.color}18`,
                     }}
                   >
                     {/* Colour header */}
@@ -196,7 +133,7 @@ export function AblazePage() {
                         background: `
                           radial-gradient(
                             circle at center,
-                            ${event.flame_color}55,
+                            ${event.color}55,
                             transparent 65%
                           ),
                           #070b10
@@ -207,20 +144,20 @@ export function AblazePage() {
                       <div
                         className="absolute h-48 w-48 rounded-full blur-[70px]"
                         style={{
-                          background: event.flame_color,
+                          background: event.color,
                           opacity: 0.25,
                         }}
                       />
 
                       {/* Flame */}
-                      <AblazeFlame color={event.flame_color} size="small" />
+                      <AblazeFlame color={event.color} size="small" />
 
                       {/* Year */}
                       <div className="absolute bottom-5 left-6">
                         <p
                           className="text-5xl font-black"
                           style={{
-                            color: event.flame_color,
+                            color: event.color,
                           }}
                         >
                           {event.year}
@@ -231,7 +168,7 @@ export function AblazePage() {
                     {/* Content */}
                     <div className="p-6">
                       <p className="text-xs font-semibold uppercase tracking-[0.25em] text-gray-400">
-                        ABLAZE
+                        {event.title}
                       </p>
 
                       {/* Theme */}
@@ -246,14 +183,14 @@ export function AblazePage() {
 
                       {/* Date */}
                       <p className="mt-4 text-xs font-medium text-gray-400">
-                        {event.event_date || "Coming Soon"}
+                        {event.date || "Coming Soon"}
                       </p>
 
                       {/* Explore */}
                       <div
                         className="mt-6 flex items-center gap-2 text-sm font-bold"
                         style={{
-                          color: event.flame_color,
+                          color: event.color,
                         }}
                       >
                         Explore year

@@ -1,7 +1,7 @@
 import { Mail, MapPin, Instagram, Facebook } from "lucide-react";
 import { motion } from "motion/react";
 import { ScrollReveal } from "../components/ScrollReveal";
-import { sendEmails, saveContactMessage } from "../../utils/email";
+import { sendEmails } from "../../utils/email";
 import { useState } from "react";
 import { ParallaxHero } from "../components/ParallaxHero";
 import { FloatingParticles } from "../components/FloatingParticles";
@@ -21,7 +21,7 @@ export function ContactPage() {
     message: "",
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: { target: { name: any; value: any } }) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -53,12 +53,12 @@ export function ContactPage() {
 
   //   }
   // };
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
     try {
       // 1. Save to Supabase
-      await saveContactMessage(formData);
+      //  await saveContactMessage(formData);
 
       // 2. Google Sheet + email functionality
       await sendEmails(formData);
@@ -273,7 +273,7 @@ export function ContactPage() {
                   <textarea
                     name="message"
                     placeholder="Message"
-                    rows="5"
+                    // rows="5"
                     value={formData.message}
                     onChange={handleChange}
                     className="w-full border rounded-xl p-3"
